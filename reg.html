@@ -42,21 +42,39 @@
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleInputPassword1" class="form-label">Пароль</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Введіть ваш пароль">
+          
+          <input type="password" class="form-control" id="password1" placeholder="Введіть ваш пароль">
+
+
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword2" class="form-label">Повторіть Пароль</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Повторіть ваш пароль">
+           
+            <input type="password" class="form-control" id="password2" placeholder="Повторіть ваш пароль">
           </div>
           <div class="w-100"></div>
           <div class="mb-3 col-12 col-md-4">
             <button type="button" class="btn btn-secondary">Відправити</button>
             <script>
                 document.querySelector('.btn-secondary').addEventListener('click', function() {
-                  alert('Реєстрація успішна!');
+                  var password1 = document.getElementById("password1").value;
+                  var password2 = document.getElementById("password2").value;
+                  
+                  if (password1.length < 8) {
+                    alert("Пароль має містити не менше 8 символів!");
+                    return;
+                  }
+                  
+                  if (password1 !== password2) {
+                    alert("Паролі не співпадають!");
+                    return;
+                  }
+                  
+                  alert("Реєстрація успішна!");
                 });
               </script>
+              
               
             <a href="log.html">Вхід</a>
         </div>
@@ -86,3 +104,4 @@
       <script src="./script.js"></script>
           </body>
           </html>
+
